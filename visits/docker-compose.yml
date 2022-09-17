@@ -1,0 +1,12 @@
+version : '3' 
+
+# service definitin specify 
+# what type of container we want
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    restart: always
+    build: .
+    ports:
+      - "4001:8080"

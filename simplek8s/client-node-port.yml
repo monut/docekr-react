@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-node-port
+spec:
+  type: NodePort # expose container to outside world
+  ports:
+    - port: 3050
+      targetPort: 3000 # send traffic to the POD/Object with label "web"
+      nodePort: 31515
+  selector:
+    component: web # links to POD/object which ha label as "web"

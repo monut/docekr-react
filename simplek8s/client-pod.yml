@@ -1,0 +1,12 @@
+apiVersion: v1 # indicates types of objects which are avaialble to us
+kind: Pod # indicate type of object we want to create
+metadata:
+  name: client-pod
+  labels:
+    component: web
+spec:
+  containers: # conatiners running inside the POD
+    - name: client # reference name of the containers
+      image: stephengrider/multi-worker
+      ports:
+        - containerPort: 3000 # expose this port to the outside world
